@@ -54,12 +54,12 @@ for env in "${envs[@]+"${envs[@]}"}" ; do
   env_name="$(sed -e "s/^$env_prefix//" -e 's/\.yml$//' <<<"$env")"
   env_hierarchy=()
   subpath=''
-  for fragment in ${env_name//-/ -}; do
+  for fragment in ${env//-/ -}; do
     subpath=$subpath$fragment
-    [[ -f "$base_dir/envs/$env_prefix$subpath.yml" ]] || continue
-    env_hierarchy+=( "$base_dir/envs/$env_prefix$subpath.yml" )
+    [[ -f "$base_dir/envs/$subpath.yml" ]] || continue
+    env_hierarchy+=( "$base_dir/envs/$subpath.yml" )
   done
-  env_ci="$(spruce merge "${env_hierarchy[@]}" | spruce json | jq -r '.kit.ci//{}')"
+  env_ci="$(spruce merge --skip-eval "${env_hierarchy[@]}" | spruce json | jq -r '.kit.ci//{}')"
 
   [[ $(_lookup "$env_ci" '.skip//false') == "true" ]] && continue
 
