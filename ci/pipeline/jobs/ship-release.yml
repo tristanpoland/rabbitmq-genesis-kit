@@ -9,6 +9,7 @@ jobs:
       - { get: git,                        passed: [prepare] }
       - { get: spec-check, trigger: false, passed: [prepare] }
       - { get: release-notes}
+      - { get: release-cache }
       - { get: git-ci }
       - { get: git-main }
       - { get: git-latest-tag }
@@ -39,7 +40,7 @@ jobs:
       params:
         name:   gh/name
         tag:    gh/tag
-        body:   (( concat "release-notes/"  meta.github.release_notes.file ))
+        body:   gh/notes.md
         globs: [gh/artifacts/*]
     - put: version
       params:

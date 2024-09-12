@@ -4,15 +4,18 @@ platform: linux
 image_resource:
   type: registry-image
   source:
-    repository: starkandwayne/genesis
+    repository: ((image/genesis.url))
+    tag:        ((image/genesis.tag))
 
 inputs:
 - name: version
 - name: git
 - name: git-ci
+- name: release-cache
 
 outputs:
 - name: build
+- name: release-cache
 
 params:
   GENESIS_HONOR_ENV: 1

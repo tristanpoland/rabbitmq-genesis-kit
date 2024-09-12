@@ -1,12 +1,22 @@
 ---
 kit:
   features:
-    - broker
+  - ((replace))
+  - broker
+  - metrics-emitter
+  ci:
+    job: deploy
+    spec_tests: false
 
 genesis:
-  env:   ci-vsphere-baseline
+  env:      ci-vsphere-baseline
+  bosh_env: rsat-bc-genesis-ci
 
 params:
-  rmq_domain:     10.128.9.32
-  broker_domain:  10.128.9.33
-  server_vm_type: medium
+  rmq_domain:    (( concat meta._ip_prefix "8.32.netip.cc" )) # future?: rmq.shared.genesis-ci.lab.scalecf.net
+  broker_domain: (( concat meta._ip_prefix "8.33" ))       # future?: rmq-broker.shared.genesis-ci.lab.scalecf.net
+
+  rmq_instances:            1
+  cf_skip_ssl_validation:   true
+  noop_leaf_change_counter: 5
+  check_queue_sync:         false

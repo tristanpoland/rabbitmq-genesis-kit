@@ -1,5 +1,11 @@
----
+--- 
 kit:
   name: dev
-  version: latest
-  features: []
+
+genesis:
+  min_version: 2.8.11
+  #  min_version: 3.0.4
+
+params:
+  bosh_network: bosh-ci
+  bosh_vm_type: bosh

@@ -12,8 +12,8 @@ definitions used in the tests.
 ci
 ├── envs
 ├── pipeline
-│   ├── jobs
-│   └── resources
+│   ├── jobs
+│   └── resources
 ├── scripts
 └── tasks
 ```
@@ -79,8 +79,8 @@ set for running the tests.  The basic structure is:
 meta:
   kit:            bosh
   release:        BOSH Genesis Kit
-  target:         cloudpipes/genesis
-  url:            https://cloudpipes.starkandwayne.com
+  target:         pipes/genesis
+  url:            https://pipes.scalecf.net
   iaas:           gcp
   exposed:        false
   initial_version: 0.2.0
@@ -180,28 +180,6 @@ embedded upstream package. Default is `upstream.org`/`upstream.package`
 
 `upstream.url`
 : If the upstream repo is not on github, specify the full url to it here.
-
-The Upstream section also works for bosh releases.  If you want new versions
-of bosh releases automatically updated for your kit, you can add the following
-sections:
-
-`upstream.bosh_releases`
-: Array of hashes, consisisting of the following keys:
-
-`name`
-: name of the release as specified by the kit
-
-`path`
-: path to the file in the kit that holds the release definition that will be
-overwriten with the updated version.
-
-`type`
-: the type of release resource.  Assumed to be (and so far only validated
-against) bosh-io-release if not specified
-
-`repo`
-: the release resource repository.
-
 
 #### Vault
 

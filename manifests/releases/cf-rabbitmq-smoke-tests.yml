@@ -3,5 +3,5 @@
   value:
     name: cf-rabbitmq-smoke-tests
     version: 120.0.0
-    url: https://cf-rabbitmq-smoke-tests-genesis-releases.s3.amazonaws.com/cf-rabbitmq-smoke-tests-120.0.0.tgz
+    url: https://s3.amazonaws.com/cf-rabbitmq-smoke-tests-genesis-releases/cf-rabbitmq-smoke-tests-120.0.0.tgz
     sha1: 4431e40e869113afcfc7d92aa37e84d8415eee11
