@@ -22,6 +22,10 @@ params:
   # the username used by the Cloud Controller to auth to the broker
   broker_username: broker
   ha_sync_mode: manual
+  # Verification is off because we don't currently have a way to
+  # automagically sign the certificate for the bosh dns that the servers
+  # will be dynamically assigned.
+  skip_haproxy_ssl_verify: true
 
 instance_groups:
 - name:      rmq-broker
@@ -65,6 +69,7 @@ instance_groups:
           management_tls:
             enabled: true
             cacert: (( grab meta.mgmt_tls.cacert ))
+            skip_verify: (( grab params.skip_haproxy_ssl_verify ))
 
           management:
             username: management
