@@ -182,7 +182,7 @@ echo >&2 "Using settings found in ${settings_file}"
 # --  Extract pipeline target information and compare -------------------------
 set -e
 # shellcheck disable=SC2064
-trap "rm -rf '${base_dir}/.deploy.ymlr' '${base_dir}/pipeline/upstream' '${base_dir}/pipeline/tests'" QUIT TERM EXIT INT
+trap "rm -rf '${base_dir}/.deploy.yml' '${base_dir}/pipeline/upstream' '${base_dir}/pipeline/tests'" QUIT TERM EXIT INT
 [[ -x "${base_dir}/scripts/build-test-jobs" ]] && "${base_dir}/scripts/build-test-jobs"
 [[ -x "${base_dir}/scripts/build-upstream-jobs" ]] && "${base_dir}/scripts/build-upstream-jobs"
 GLOBIGNORE="pipeline/custom*/*.yml:pipeline/optional*/*.yml"
@@ -198,6 +198,8 @@ target=$(jq -r --arg t "${CONCOURSE_TARGET:-}" '.meta.target // $t' <<<"$meta")
 pipeline_url="$(jq -r '.meta.url // ""' <<<"$meta")"
 target_url="$(spruce json ~/.flyrc | jq -r --arg t "$target" '.targets[$t].api')"
 [[ -n "${pipeline_url:-}" && "$pipeline_url" != "$target_url" ]] && \
+  error "Target '$target' does not match the url specified in the pipeline: found '$target_url', got '$pipeline_url'"
+
 pipeline_team="$(jq -r '.meta.team // ""' <<<"$meta")"
 target_team="$(spruce json ~/.flyrc | jq -r --arg t "$target" '.targets[$t].team')"
 [[ -n "${pipeline_team:-}" && "$pipeline_team" != "$target_team" ]] && \
