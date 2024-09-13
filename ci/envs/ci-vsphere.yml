@@ -4,3 +4,6 @@ kit:
 
 meta:
   _ip_prefix: "172.20."
+
+params:
+  availability_zone: "z2"
