@@ -18,5 +18,6 @@ params:
 
   rmq_instances:            1
   cf_skip_ssl_validation:   true
+  cf_deployment_env:        rsat-bc-genesis-ci
   noop_leaf_change_counter: 5
   check_queue_sync:         false
