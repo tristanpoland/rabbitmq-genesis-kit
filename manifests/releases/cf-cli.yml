@@ -2,6 +2,6 @@
   path: /releases?/name=cf-cli?
   value:
     name: cf-cli
-    version: 1.36.0
-    url: https://bosh.io/d/github.com/bosh-packages/cf-cli-release?v=1.36.0
-    sha1: 579466410a0a9c37d8e1994941e15529db8c54cd
+    version: 1.60.0
+    url: https://bosh.io/d/github.com/bosh-packages/cf-cli-release?v=1.60.0
+    sha1: c0aeacde21976b8710b7010976acf3c056d7a81d

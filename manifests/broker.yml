@@ -80,7 +80,7 @@ instance_groups:
   - name:    bpm
     release: bpm
 
-  - name: cf-cli-6-linux
+  - name: cf-cli-7-linux
     release: cf-cli
 
   - name: broker-registrar
