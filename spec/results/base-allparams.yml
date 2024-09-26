@@ -111,7 +111,7 @@ instance_groups:
     release: cf-rabbitmq-multitenant-broker
   - name: bpm
     release: bpm
-  - name: cf-cli-6-linux
+  - name: cf-cli-7-linux
     release: cf-cli
   - name: broker-registrar
     properties:
@@ -228,13 +228,13 @@ releases:
   url: https://s3.amazonaws.com/cf-rabbitmq-multitenant-broker-genesis-releases/cf-rabbitmq-multitenant-broker-107.0.0.tgz
   version: 107.0.0
 - name: cf-rabbitmq-smoke-tests
-  sha1: 4431e40e869113afcfc7d92aa37e84d8415eee11
-  url: https://s3.amazonaws.com/cf-rabbitmq-smoke-tests-genesis-releases/cf-rabbitmq-smoke-tests-120.0.0.tgz
-  version: 120.0.0
+  sha1: 1a0ff77c30f1b39b6121bb10008d0979db8bb08c
+  url: https://bosh.io/d/github.com/pivotal-cf/cf-rabbitmq-smoke-tests-release?v=166.0.0
+  version: 166.0.0
 - name: cf-cli
-  sha1: 579466410a0a9c37d8e1994941e15529db8c54cd
-  url: https://bosh.io/d/github.com/bosh-packages/cf-cli-release?v=1.36.0
-  version: 1.36.0
+  sha1: c0aeacde21976b8710b7010976acf3c056d7a81d
+  url: https://bosh.io/d/github.com/bosh-packages/cf-cli-release?v=1.60.0
+  version: 1.60.0
 stemcells:
 - alias: default
   os: test-stemcell
